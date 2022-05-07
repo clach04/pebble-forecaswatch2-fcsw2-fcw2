@@ -29,7 +29,7 @@ jobs:
         with:
           python-version: '2.7'
       - name: apt-get
-        run: sudo apt-get -qq install -y wget python-pip python2.7-dev libsdl1.2debian libfdt1 libpixman-1-0 nodejs npm libfreetype6 libx11-6 rlwrap
+        run: sudo apt-get update; sudo apt-get -qq install -y wget python-pip python2.7-dev libsdl1.2debian libfdt1 libpixman-1-0 nodejs npm libfreetype6 libx11-6 rlwrap
       - name: virtualenv
         run: pip install virtualenv
       - name: get sdk

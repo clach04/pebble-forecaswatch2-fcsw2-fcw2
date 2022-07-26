@@ -1,8 +1,10 @@
 function request(url, type, callback) {
     var xhr = new XMLHttpRequest();
     xhr.onload = function() {
+        if (1==1) {console.log("URL returned" + this.responseText);}
         callback(this.responseText);
     };
+    if (1==1) {console.log(type + " URL: " + url);}
     xhr.open(type, url);
     xhr.send();
 }

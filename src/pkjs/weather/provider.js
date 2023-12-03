@@ -120,6 +120,9 @@ function gps_cache_location_save(cached_location) {
 // returns a dictionary of latitude and longitude
 function gps_cache_location_load() {
     var cached_location = localStorage.getItem('gps_cached_location');
+    if (cached_location) {
+        cached_location = JSON.parse(cached_location);
+    }
     return cached_location;  // TODO ensure both latitude and longitude present and valid?
 }
 

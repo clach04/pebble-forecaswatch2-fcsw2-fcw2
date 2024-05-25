@@ -102,6 +102,13 @@ void bluetooth_icons_refresh(bool connected) {
 
 void bluetooth_callback(bool connected) {
     bluetooth_icons_refresh(connected);
+    //// debug
+    APP_LOG(APP_LOG_LEVEL_INFO, "bluetooth_callback() g_config->vibe: %d connected: %d", (int) g_config->vibe, (int) connected);
+    if (!connected)
+    {
+        vibes_short_pulse();  /* vibrate/rumble */
+    }
+    //// debug
     if (!connected && g_config->vibe)
         vibes_double_pulse();
 }

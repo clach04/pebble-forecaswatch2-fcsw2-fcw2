@@ -7,7 +7,7 @@ on:
   push:
     #branches: [master]
   pull_request:
-    # External Pull Request requires confirmation BEFORE action fires https://docs.github.com/en/actions/managing-workflow-runs/approving-workflow-runs-from-public-forks 
+    # External Pull Request requires confirmation BEFORE action fires https://docs.github.com/en/actions/managing-workflow-runs/approving-workflow-runs-from-public-forks
     #branches: [master]
 
   # Allows you to run this workflow manually from the Actions tab
@@ -15,7 +15,7 @@ on:
     # from https://levelup.gitconnected.com/how-to-manually-trigger-a-github-actions-workflow-4712542f1960
     inputs:
       git-ref:
-        description: Git Ref (Optional)    
+        description: Git Ref (Optional)
         required: false
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -70,7 +70,7 @@ jobs:
       - name: pebble-build
         run: yes | sdk/bin/pebble build
       - name: Upload PBW
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: PebblePBW
           path: ./**/*.pbw

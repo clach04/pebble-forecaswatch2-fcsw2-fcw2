@@ -865,8 +865,8 @@ function sendFixtureWeather(fixture) {
 
 /**
  * @typedef {import("./weather/provider")} WeatherProvider
- * @param {WeatherProvider} provider 
- * @param {boolean} force 
+ * @param {WeatherProvider} provider
+ * @param {boolean} force
  */
 function fetch(provider, force) {
     if (!isWatchConnected()) {
@@ -978,6 +978,7 @@ function roundDownMinutes(date, minuteMod) {
 }
 
 function needRefresh() {
+    var refresh_interval_in_minutes = 30; // TODO make a config option
     // If the weather has never been fetched
     var lastFetchSuccessString = localStorage.getItem(KEY_LAST_FETCH_SUCCESS);
     if (lastFetchSuccessString === null) {
@@ -989,5 +990,5 @@ function needRefresh() {
         return true;
     }
     // If the most recent fetch is more than 30 minutes old
-    return (Date.now() - roundDownMinutes(new Date(lastFetchSuccess.time), 30) > 1000 * 60 * 30);
+    return (Date.now() - roundDownMinutes(new Date(lastFetchSuccess.time), refresh_interval_in_minutes) > 1000 * 60 * refresh_interval_in_minutes);
 }

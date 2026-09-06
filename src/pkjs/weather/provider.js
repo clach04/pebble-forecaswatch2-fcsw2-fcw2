@@ -3,7 +3,7 @@ var storageKeys = require('../storage-keys.js');
 
 var XHR_TIMEOUT_MS = 5000;
 var GPS_CACHE_KEY = 'gpsCache';
-var GPS_CACHE_MAX_AGE_MS = 24 * 60 * 60 * 1000;
+var GPS_CACHE_MAX_AGE_MS = 24 * 60 * 60 * 1000 * 7;  // 7 day GPS cached location is fine
 var GEOCODE_CACHE_KEY = storageKeys.GEOCODE_CACHE_KEY;
 var RATE_LIMIT_BACKOFF_KEY = storageKeys.GEOCODE_BACKOFF_KEY;
 
